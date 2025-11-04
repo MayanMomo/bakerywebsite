@@ -1,98 +1,304 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html> 
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="menu_page_title">Menu | Padaria Branco Quente</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="js/lang.js"></script>
+    <title data-i18n="menuPageTitle">Menu | Padaria Branco Quente</title> <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .transition-slow {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Added styles for language switcher */
+        .lang-switcher {
+            opacity: 0.6;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .lang-switcher.active {
+            opacity: 1;
+            transform: scale(1.1);
+            border-radius: 2px;
+            box-shadow: 0 0 6px rgba(0,0,0,0.2);
+        }
+        .lang-switcher:hover {
+            opacity: 1;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
-
-    <!-- Navbar -->
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">Padaria Branco Quente</a>
-
-            <ul class="flex space-x-6">
-                <li><a href="index.html" data-i18n="nav_home" class="hover:text-amber-600">Home</a></li>
-                <li><a href="menu.html" data-i18n="nav_menu" class="text-amber-600 font-semibold">Menu</a></li>
-                <li><a href="about.html" data-i18n="nav_about" class="hover:text-amber-600">About</a></li>
-                <li><a href="contact.html" data-i18n="nav_contact" class="hover:text-amber-600">Contact</a></li>
-            </ul>
-
-            <!-- Language Switch -->
-            <div class="flex space-x-2 items-center">
-                <button data-lang-btn data-lang="en" class="flex items-center space-x-1">
-                    <img src="https://flagcdn.com/w20/gb.png" class="w-5 h-4" alt="English">
-                    <span>EN</span>
-                </button>
-                <button data-lang-btn data-lang="pt" class="flex items-center space-x-1 opacity-60">
-                    <img src="https://flagcdn.com/w20/pt.png" class="w-5 h-4" alt="Português">
-                    <span>PT</span>
+<body class="bg-amber-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold playfair text-amber-800">Padaria Branco Quente</div>
+                <div class="hidden md:flex items-center space-x-8"> <a href="index.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navHome">Início</a>
+                    <a href="menu.html" class="text-amber-800 font-medium hover:text-amber-600 transition-slow" data-i18n="navMenu">Menu</a>
+                    <a href="about.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navAbout">Sobre Nós</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navContact">Contacto</a>
+                
+                    <div class="flex items-center space-x-4 ml-8">
+                        <button id="lang-en" class="lang-switcher" data-lang="en">
+                            <img src="https://flagcdn.com/gb.svg" alt="English" class="w-6 h-auto rounded-sm">
+                        </button>
+                        <button id="lang-pt" class="lang-switcher" data-lang="pt">
+                            <img src="https://flagcdn.com/pt.svg" alt="Português" class="w-6 h-auto rounded-sm">
+                        </button>
+                    </div>
+                    </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle"> <i data-feather="menu" class="text-amber-800"></i>
                 </button>
             </div>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="relative">
-        <img src="https://images.unsplash.com/photo-1567752588693-ad10a647c5a3?q=80&w=1920&fit=crop" 
-             alt="Fresh Bread" class="w-full h-96 object-cover">
-        <div class="absolute inset-0 bg-black/50 flex flex-col justify-center items-center text-white text-center">
-            <h1 class="text-5xl font-bold mb-4" data-i18n="menu_hero_title">Our Menu</h1>
-            <p class="text-xl" data-i18n="menu_hero_subtitle">Freshly baked products made with tradition and passion.</p>
         </div>
-    </section>
+    </nav>
 
-    <!-- Menu Section -->
-    <section class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold text-center mb-12" data-i18n="menu_section_title">Freshly Baked Goods</h2>
-
-        <div class="grid md:grid-cols-3 gap-12">
-
-            <!-- Product 1 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" 
-                     alt="Pão de Monchique" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2" data-i18n="prod_pao_title">Pão de Monchique</h3>
-                    <p class="text-gray-600 mb-4" data-i18n="prod_pao_desc">Traditional crusty bread with a soft interior.</p>
-                    <p class="text-amber-700 font-bold">€2.50</p>
-                </div>
-            </div>
-
-            <!-- Product 2 -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1579635442265-4f8b49d3c3d5?auto=format&fit=crop&w=800&q=80" 
-                     alt="Pastel de Nata" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2" data-i18n="prod_nata_title">Pastel de Nata</h3>
-                    <p class="text-gray-600 mb-4" data-i18n="prod_nata_desc">Creamy custard tarts with cinnamon.</p>
-                    <p class="text-amber-700 font-bold">€1.20</p>
-                </div>
-            </div>
-
-            <!-- Product 3 (You can keep adding more here exactly as before) -->
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1603808033192-082f7720bea4?auto=format&fit=crop&w=800&q=80" 
-                     alt="Croissant" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold mb-2" data-i18n="prod_croissant_title">Croissant</h3>
-                    <p class="text-gray-600 mb-4" data-i18n="prod_croissant_desc">Buttery, flaky French pastry.</p>
-                    <p class="text-amber-700 font-bold">€1.50</p>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-8">
+    <section class="py-16 bg-amber-800 text-white" data-aos="fade-down">
         <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2024 Padaria Branco Quente. <span data-i18n="footer_rights">All rights reserved.</span></p>
+            <h1 class="playfair text-4xl md:text-5xl font-bold mb-4" data-i18n="menuHeaderTitle">O Nosso Menu</h1>
+            <p class="text-xl max-w-2xl mx-auto" data-i18n="menuHeaderSubtitle">Produtos de padaria tradicionais portugueses feitos com amor e ingredientes locais</p>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="playfair text-3xl font-bold text-amber-800 mb-2" data-i18n="menuBreadsTitle">Pães</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1744217083335-8b57ec3826ac?q=80&w=1170&auto=format&fit=crop&w=800&q=80" alt="Pão de Monchique rústico" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuBread1Title">Pão de Monchique</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuBread1Desc">O nosso pão de forno a lenha com crosta estaladiça e miolo fofo.</p>
+                    <p class="font-bold text-amber-700">€2,50</p>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1649019050848-f39546aba28a?q=80&w=1025&auto=format&fit=crop&w=800&q=80" alt="Pão alentejano redondo" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuBread2Title">Pão Alentejano</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuBread2Desc">Pão redondo tradicional do Alentejo, com miolo denso e sabor autêntico.</p>
+                    <p class="font-bold text-amber-700">€2,80</p>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-left">
+                    <img src="https://plus.unsplash.com/premium_photo-1661770191552-90e12a9c41aa?q=80&w=1170&auto=format&fit=crop&w=800&q=80" alt="Pão de centeio escuro" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuBread3Title">Pão de Centeio</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuBread3Desc">Pão de centeio robusto, com sabor intenso e textura consistente.</p>
+                    <p class="font-bold text-amber-700">€3,00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="playfair text-3xl font-bold text-amber-800 mb-2" data-i18n="menuPastriesTitle">Pastéis</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1618250713296-ee011768e525?q=80&w=1974&auto=format&fit=crop&w=800&q=80" alt="Pastéis de nata frescos" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuPastry1Title">Pastel de Nata</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuPastry1Desc">Tartes de nata cremosas com massa folhada crocante e toque de canela.</p>
+                    <p class="font-bold text-amber-700" data-i18n="menuPastry1Price">€1,20 cada</p>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1675227977042-a572dac762be?q=80&w=880&auto=format&fit=crop&w=800&q=80" alt="Bolos de arroz" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuPastry2Title">Bolo de Arroz</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuPastry2Desc">Queques de farinha de arroz com textura leve e sabor delicado.</p>
+                    <p class="font-bold text-amber-700" data-i18n="menuPastry2Price">€1,00 cada</p>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1713274786966-628fed3e41b0?q=80&w=1170&auto=format&fit=crop&w=800&q=80" alt="Bolo de mel algarvio" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuPastry3Title">Bolo de Mel</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuPastry3Desc">Bolo de mel do Algarve, enriquecido com mel local e amêndoas.</p>
+                    <p class="font-bold text-amber-700" data-i18n="menuPastry3Price">€3,50 (fatia)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="playfair text-3xl font-bold text-amber-800 mb-2" data-i18n="menuDrinksTitle">Bebidas</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1596952954116-da11f51715c3?q=80&w=1170&auto=format&fit=crop&w=800&q=80" alt="Bica (expresso português)" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuDrink1Title">Bica (Expresso)</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuDrink1Desc">Expresso intenso ao estilo português, feito com grãos selecionados.</p>
+                    <p class="font-bold text-amber-700">€0,80</p>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-up">
+                    <img src="https://plus.unsplash.com/premium_photo-1673545518720-1228e52894e2?q=80&w=687&auto=format&fit=crop&w=800&q=80" alt="Galão em copo alto" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuDrink2Title">Galão</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuDrink2Desc">Café com leite servido em copo alto, perfeito para acompanhar um pastel.</p>
+                    <p class="font-bold text-amber-700">€1,50</p>
+                </div>
+                
+                <div class="bg-white rounded-lg overflow-hidden shadow-md menu-item transition-slow p-6" data-aos="fade-left">
+                    <img src="httpsa://plus.unsplash.com/premium_photo-1676642588287-ad44c524d3b6?q=80&w=1171&auto=format&fit=crop&w=800&q=80" alt="Sumos de frutas frescas" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="menuDrink3Title">Sumo de Fruta</h3>
+                    <p class="text-gray-600 mb-4" data-i18n="menuDrink3Desc">Sumos naturais de frutas frescas do Algarve, espremidas na hora.</p>
+                    <p class="font-bold text-amber-700">€2,00</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="playfair text-xl font-bold mb-4">Padaria Branco Quente</h3>
+                    <p class="text-gray-400" data-i18n="footerDesc">Padaria tradicional portuguesa em Monchique desde 1987.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerNavTitle">Navegação</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navHome">Início</a></li>
+                        <li><a href="menu.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navMenu">Menu</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navAbout">Sobre Nós</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navContact">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerHoursTitle">Horário</h4>
+                    <ul class="text-gray-400 space-y-2">
+                        <li data-i18n="footerHours1">Segunda - Sexta: 6h - 19h</li>
+                        <li data-i18n="footerHours2">Sábado: 6h - 17h</li>
+                        <li data-i18n="footerHours3">Domingo: 7h - 14h</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerFollowTitle">Siga-nos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow"><i data-feather="facebook" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow"><i data-feather="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow"><i data-feather="twitter" class="w-5 h-5"></i></a>
+                    </div>
+                    <p class="text-gray-400 mt-4">Rua da Padaria 12<br>Monchique, Portugal</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p data-i18n="footerCopyright">&copy; 2023 Padaria Deliciosa. Todos os direitos reservados.</p>
+            </div>
         </div>
     </footer>
 
+    <script src="lang.js"></script>
+    
+    <script>
+        AOS.init({
+            duration: 800, // Changed from 1000 to 800 for consistency
+            easing: 'ease-in-out',
+            once: true
+        });
+        feather.replace();
+
+        // Menu mobile (will work if an element with id="menu-toggle" exists)
+        const menuToggle = document.getElementById("menu-toggle");
+        if (menuToggle) {
+            menuToggle.addEventListener("click", function() {
+                const nav = document.querySelector("nav .md\\:flex");
+                nav.classList.toggle("hidden");
+            });
+        }
+
+        // --- Language Switcher Logic ---
+        const translations = window.translations;
+        
+        const getLanguage = () => {
+            let lang = localStorage.getItem('lang');
+            if (!lang) {
+                lang = 'en'; // Default to English
+                localStorage.setItem('lang', lang);
+            }
+            return lang;
+        };
+
+        const setLanguage = (lang) => {
+            localStorage.setItem('lang', lang);
+            translatePage(lang);
+            updateSwitcherUI(lang);
+        };
+
+        const translatePage = (lang) => {
+            if (!translations[lang]) {
+                console.error(`Translations for language "${lang}" not found.`);
+                return;
+            }
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key]; // Use innerHTML to support <br>
+                }
+            });
+            // Update page title
+            const titleKey = document.title.getAttribute('data-i18n');
+            if (titleKey && translations[lang][titleKey]) {
+                document.title = translations[lang][titleKey];
+            }
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+        };
+
+        const updateSwitcherUI = (lang) => {
+            document.querySelectorAll('.lang-switcher').forEach(switcher => {
+                if (switcher.getAttribute('data-lang') === lang) {
+                    switcher.classList.add('active');
+                } else {
+                    switcher.classList.remove('active');
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = getLanguage();
+            translatePage(currentLang);
+            updateSwitcherUI(currentLang);
+
+            // Add click listeners to buttons
+            const langEN = document.getElementById('lang-en');
+            const langPT = document.getElementById('lang-pt');
+            
+            if (langEN) {
+                langEN.addEventListener('click', () => setLanguage('en'));
+            }
+            if (langPT) {
+                langPT.addEventListener('click', () => setLanguage('pt'));
+            }
+        });
+        // --- End Language Switcher Logic ---
+    </script>
 </body>
 </html>
