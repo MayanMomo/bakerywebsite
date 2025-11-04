@@ -1,114 +1,327 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="about_title">About Us | Padaria Branco Quente</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title data-i18n="aboutPageTitle">Sobre Nós | Padaria Branco Quente</title> <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="lang.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-        body { font-family: 'Poppins', sans-serif; }
-        .playfair { font-family: 'Playfair Display', serif; }
-        .transition-slow { transition: all 0.3s ease-in-out; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .transition-slow {
+            transition: all 0.3s ease-in-out;
+        }
+        
         .about-hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-            url('https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=1460&auto=format&fit=crop');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://plus.unsplash.com/premium_photo-1675604274513-76ac577670d6?q=80&w=1170&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
+        }
+
+        /* Added styles for language switcher */
+        .lang-switcher {
+            opacity: 0.6;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .lang-switcher.active {
+            opacity: 1;
+            transform: scale(1.1);
+            border-radius: 2px;
+            box-shadow: 0 0 6px rgba(0,0,0,0.2);
+        }
+        .lang-switcher:hover {
+            opacity: 1;
         }
     </style>
 </head>
 <body class="bg-amber-50">
-
-    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="text-2xl font-bold playfair text-amber-800">Padaria Branco Quente</div>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="index.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_home">Home</a>
-                <a href="menu.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_menu">Menu</a>
-                <a href="about.html" class="text-amber-800 font-medium hover:text-amber-600 transition-slow" data-i18n="nav_about">About</a>
-                <a href="contact.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_contact">Contact</a>
-
-                <!-- Language Switch -->
-                <div class="flex items-center space-x-2 ml-6">
-                    <button onclick="changeLanguage('en')" class="flex items-center space-x-1">
-                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="w-5 h-4">
-                        <span>EN</span>
-                    </button>
-                    <span>|</span>
-                    <button onclick="changeLanguage('pt')" class="flex items-center space-x-1">
-                        <img src="https://flagcdn.com/w20/pt.png" alt="Portuguese" class="w-5 h-4">
-                        <span>PT</span>
-                    </button>
-                </div>
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold playfair text-amber-800">Padaria Branco Quente</div>
+                <div class="hidden md:flex items-center space-x-8"> <a href="index.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navHome">Início</a>
+                    <a href="menu.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navMenu">Menu</a>
+                    <a href="about.html" class="text-amber-800 font-medium hover:text-amber-600 transition-slow" data-i18n="navAbout">Sobre Nós</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navContact">Contacto</a>
+                
+                    <div class="flex items-center space-x-4 ml-8">
+                        <button id="lang-en" class="lang-switcher" data-lang="en">
+                            <img src="https://flagcdn.com/gb.svg" alt="English" class="w-6 h-auto rounded-sm">
+                        </button>
+                        <button id="lang-pt" class="lang-switcher" data-lang="pt">
+                            <img src="https://flagcdn.com/pt.svg" alt="Português" class="w-6 h-auto rounded-sm">
+                        </button>
+                    </div>
+                    </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle"> <i data-feather="menu" class="text-amber-800"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="about-hero h-64 flex items-center justify-center text-white">
-        <div class="text-center">
-            <h1 class="playfair text-4xl md:text-5xl font-bold" data-i18n="about_header">About Our Bakery</h1>
+    <section class="about-hero h-96 flex items-center justify-center text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h1 class="playfair text-4xl md:text-6xl font-bold mb-6" data-i18n="aboutHeroTitle">A Nossa História</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-i18n="aboutHeroSubtitle">Três gerações de tradição em Monchique</p>
         </div>
     </section>
 
-    <!-- Story -->
-    <section class="py-16">
-        <div class="container mx-auto px-6 lg:px-16">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div data-aos="fade-right">
-                    <h2 class="playfair text-3xl font-bold text-amber-800 mb-4" data-i18n="about_our_story">Our Story</h2>
-                    <p class="text-gray-700 leading-relaxed mb-4" data-i18n="about_story_1">
-                        Padaria Branco Quente began as a small family bakery in the heart of Monchique, built on tradition, passion, and the love for Portuguese flavors.
-                    </p>
-                    <p class="text-gray-700 leading-relaxed" data-i18n="about_story_2">
-                        For generations, we’ve crafted fresh bread, pastries, and cakes daily using authentic recipes and locally sourced ingredients.
-                    </p>
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <figure>
+                        <img src="https://images.unsplash.com/photo-1595801106239-faefa2cdcf75?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&q=80&w=687&auto=format&fit=crop" alt="Padaria tradicional portuguesa" class="rounded-lg shadow-xl">
+                        <figcaption class="text-center text-gray-600 mt-2" data-i18n="aboutFig1Caption">A nossa primeira padaria em Monchique.</figcaption>
+                    </figure>
                 </div>
-                <div data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1542838776-096d625f1d86?q=80&w=1460&auto=format&fit=crop" class="rounded-lg shadow-lg" alt="Our Bakery">
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="playfair text-3xl md:text-4xl font-bold text-amber-800 mb-6" data-i18n="aboutStoryTitle">Das Origens Simples</h2>
+                    <p class="text-gray-700 mb-4" data-i18n="aboutStoryDesc1">Fundada em 1987 por João e Maria Silva, a Padaria Deliciosa começou como uma pequena padaria de bairro a servir pão fresco aos habitantes de Monchique.</p>
+                    <p class="text-gray-700 mb-6" data-i18n="aboutStoryDesc2">O que começou como um forno a lenha modesto cresceu para se tornar uma instituição local, agora gerida pela filha Ana e pelo marido Carlos, que continuam a tradição familiar com um toque moderno.</p>
+                    <div class="flex items-center text-gray-700">
+                        <i data-feather="clock" class="mr-2 text-amber-600"></i>
+                        <span data-i18n="aboutStoryFact">Aberta todos os dias desde 1987</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team -->
-    <section class="bg-white py-16">
-        <div class="container mx-auto px-6 lg:px-16">
-            <h2 class="text-center playfair text-3xl font-bold text-amber-800 mb-12" data-i18n="about_team">Our Team</h2>
-            <div class="grid md:grid-cols-3 gap-8 text-center">
-                <div data-aos="fade-up" class="bg-amber-50 p-6 rounded-lg shadow">
-                    <img src="https://plus.unsplash.com/premium_photo-1723672977436-8aa1331bd589?q=80&w=688&auto=format&fit=crop" class="w-32 h-32 rounded-full mx-auto object-cover mb-4">
-                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="about_baker_1_name">Carlos Mendes</h3>
-                    <p class="text-gray-600" data-i18n="about_baker_1_role">Master Pastry Chef</p>
-                </div>
-                <div data-aos="fade-up" class="bg-amber-50 p-6 rounded-lg shadow">
-                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=688&auto=format&fit=crop" class="w-32 h-32 rounded-full mx-auto object-cover mb-4">
-                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="about_baker_2_name">Maria Oliveira</h3>
-                    <p class="text-gray-600" data-i18n="about_baker_2_role">Head Baker</p>
-                </div>
-                <div data-aos="fade-up" class="bg-amber-50 p-6 rounded-lg shadow">
-                    <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?q=80&w=688&auto=format&fit=crop" class="w-32 h-32 rounded-full mx-auto object-cover mb-4">
-                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="about_baker_3_name">Ana Sousa</h3>
-                    <p class="text-gray-600" data-i18n="about_baker_3_role">Cake Designer</p>
+    <section class="py-20 bg-amber-50">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <h2 class="playfair text-3xl md:text-4xl font-bold text-amber-800 mb-6" data-i18n="aboutMissionTitle">A Nossa Missão & Valores</h2>
+                <p class="text-gray-700 mb-8" data-i18n="aboutMissionDesc">Na Padaria Deliciosa acreditamos em preservar as tradições portuguesas, usando apenas os melhores ingredientes locais. O nosso compromisso com a qualidade mantém-se inalterado há mais de três décadas.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-amber-600 mb-4">
+                            <i data-feather="heart" class="w-10 h-10 mx-auto"></i>
+                        </div>
+                        <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="aboutValue1Title">Paixão</h3>
+                        <p class="text-gray-600" data-i18n="aboutValue1Desc">Fazemos cada pão e bolo com amor e dedicação.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-amber-600 mb-4">
+                            <i data-feather="award" class="w-10 h-10 mx-auto"></i>
+                        </div>
+                        <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="aboutValue2Title">Qualidade</h3>
+                        <p class="text-gray-600" data-i18n="aboutValue2Desc">Usamos apenas ingredientes locais de excelência.</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-amber-600 mb-4">
+                            <i data-feather="users" class="w-10 h-10 mx-auto"></i>
+                        </div>
+                        <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="aboutValue3Title">Comunidade</h3>
+                        <p class="text-gray-600" data-i18n="aboutValue3Desc">A servir Monchique com orgulho desde 1987.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="playfair text-3xl md:text-4xl font-bold text-amber-800 mb-4" data-i18n="aboutTeamTitle">A Nossa Equipa</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="aboutTeamSubtitle">Os rostos por trás dos seus produtos favoritos.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <figure>
+                        <img src="https://plus.unsplash.com/premium_photo-1664033881790-0a8b5686bcaf?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&q=80&w=765&auto=format&fit=crop" alt="Ana Silva - Padeira" class="w-48 h-48 rounded-full object-cover mx-auto mb-4 shadow-lg">
+                        <figcaption class="text-gray-600 mt-2" data-i18n="aboutTeam1FigCap">Ana Silva na padaria.</figcaption>
+                    </figure>
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="aboutTeam1Name">Ana Silva</h3>
+                    <p class="text-gray-600 font-medium mb-2" data-i18n="aboutTeam1Role">Proprietária & Padeira</p>
+                    <p class="text-gray-600" data-i18n="aboutTeam1Desc">Filha dos fundadores, cresceu na padaria e estudou pastelaria em Lisboa antes de assumir o negócio da família.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <figure>
+                        <img src="https://plus.unsplash.com/premium_photo-1723672977436-8aa1331bd589?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Carlos Mendes - Pasteleiro" class="w-48 h-48 rounded-full object-cover mx-auto mb-4 shadow-lg">
+                        <figcaption class="text-gray-600 mt-2" data-i18n="aboutTeam2FigCap">Carlos a preparar doçaria tradicional.</figcaption>
+                    </figure>
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="aboutTeam2Name">Carlos Mendes</h3>
+                    <p class="text-gray-600 font-medium mb-2" data-i18n="aboutTeam2Role">Pasteleiro</p>
+                    <p class="text-gray-600" data-i18n="aboutTeam2Desc">Especialista em pastelaria tradicional portuguesa, com mais de 20 anos de experiência.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <figure>
+                        <img src="https://plus.unsplash.com/premium_photo-1661542943290-cbf7721e1843?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Miguel Costa - Mestre Padeiro" class="w-48 h-48 rounded-full object-cover mx-auto mb-4 shadow-lg">
+                        <figcaption class="text-gray-600 mt-2" data-i18n="aboutTeam3FigCap">Miguel junto ao forno a lenha.</figcaption>
+                    </figure>
+                    <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="aboutTeam3Name">Miguel Costa</h3>
+                    <p class="text-gray-600 font-medium mb-2" data-i18n="aboutTeam3Role">Mestre Padeiro</p>
+                    <p class="text-gray-600" data-i18n="aboutTeam3Desc">O nosso especialista em forno a lenha que começa a cozer pão às 3 da manhã.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-amber-800 text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h2 class="playfair text-3xl md:text-4xl font-bold mb-6" data-i18n="aboutCtaTitle">Visite a Nossa Padaria</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-i18n="aboutCtaSubtitle">Venha experimentar a tradição e o sabor da verdadeira padaria portuguesa.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="menu.html" class="bg-white text-amber-800 hover:bg-amber-100 font-bold py-3 px-8 rounded-full transition-slow inline-block" data-i18n="aboutCtaBtn1">Ver Menu</a>
+                <a href="contact.html" class="border-2 border-white hover:bg-white hover:text-amber-800 font-bold py-3 px-8 rounded-full transition-slow inline-block" data-i18n="aboutCtaBtn2">Fale Connosco</a>
+            </div>
+        </div>
+    </section>
+
     <footer class="bg-gray-900 text-white py-12">
-        <div class="text-center text-gray-400">&copy; 2023 Padaria Branco Quente</div>
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="playfair text-xl font-bold mb-4">Padaria Branco Quente</h3>
+                    <p class="text-gray-400" data-i18n="footerDesc">Padaria tradicional em Monchique desde 1987.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerNavTitle">Navegação</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navHome">Início</a></li>
+                        <li><a href="menu.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navMenu">Menu</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navAbout">Sobre Nós</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navContact">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerHoursTitle">Horário</h4>
+                    <ul class="text-gray-400 space-y-2">
+                        <li data-i18n="footerHours1">Segunda - Sexta: 6h - 19h</li>
+                        <li data-i18n="footerHours2">Sábado: 6h - 17h</li>
+                        <li data-i18n="footerHours3">Domingo: 7h - 14h</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerFollowTitle">Siga-nos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mt-4">Rua da Padaria 12<br>Monchique, Portugal</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p data-i18n="footerCopyright">&copy; 2023 Padaria Deliciosa. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="lang.js"></script>
+
     <script>
-        AOS.init();
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
         feather.replace();
+
+        // Menu mobile (will work if an element with id="menu-toggle" exists)
+        const menuToggle = document.getElementById("menu-toggle");
+        if (menuToggle) {
+            menuToggle.addEventListener("click", function() {
+                const nav = document.querySelector("nav .md\\:flex");
+                nav.classList.toggle("hidden");
+            });
+        }
+
+        // --- Language Switcher Logic ---
+        const translations = window.translations;
+        
+        const getLanguage = () => {
+            let lang = localStorage.getItem('lang');
+            if (!lang) {
+                lang = 'en'; // Default to English
+                localStorage.setItem('lang', lang);
+            }
+            return lang;
+        };
+
+        const setLanguage = (lang) => {
+            localStorage.setItem('lang', lang);
+            translatePage(lang);
+            updateSwitcherUI(lang);
+        };
+
+        const translatePage = (lang) => {
+            if (!translations[lang]) {
+                console.error(`Translations for language "${lang}" not found.`);
+                return;
+            }
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.innerHTML = translations[lang][key]; // Use innerHTML to support <br>
+                }
+            });
+            // Update page title
+            const titleElement = document.querySelector('title[data-i18n]');
+            if (titleElement) {
+                const titleKey = titleElement.getAttribute('data-i18n');
+                if (translations[lang][titleKey]) {
+                    document.title = translations[lang][titleKey];
+                }
+            }
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+        };
+
+        const updateSwitcherUI = (lang) => {
+            document.querySelectorAll('.lang-switcher').forEach(switcher => {
+                if (switcher.getAttribute('data-lang') === lang) {
+                    switcher.classList.add('active');
+                } else {
+                    switcher.classList.remove('active');
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = getLanguage();
+            translatePage(currentLang);
+            updateSwitcherUI(currentLang);
+
+            // Add click listeners to buttons
+            const langEN = document.getElementById('lang-en');
+            const langPT = document.getElementById('lang-pt');
+            
+            if (langEN) {
+                langEN.addEventListener('click', () => setLanguage('en'));
+            }
+            if (langPT) {
+                langPT.addEventListener('click', () => setLanguage('pt'));
+            }
+        });
+        // --- End Language Switcher Logic ---
     </script>
 </body>
 </html>
