@@ -1,113 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="contact_title">Contact Us | Padaria Branco Quente</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title data-i18n="contactPageTitle">Contactos | Padaria Branco Quente</title> <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="lang.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
-        body { font-family: 'Poppins', sans-serif; }
-        .playfair { font-family: 'Playfair Display', serif; }
-        .transition-slow { transition: all 0.3s ease-in-out; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .transition-slow {
+            transition: all 0.3s ease-in-out;
+        }
+        
         .contact-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-            url('http://static.photos/food/1200x630/20');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1560427183-4efd29c38997?q=80&w=2070&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
+        }
+        
+        .map-placeholder {
+            background-color: #f5f5f5;
+            height: 100%;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        /* Added styles for language switcher */
+        .lang-switcher {
+            opacity: 0.6;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .lang-switcher.active {
+            opacity: 1;
+            transform: scale(1.1);
+            border-radius: 2px;
+            box-shadow: 0 0 6px rgba(0,0,0,0.2);
+        }
+        .lang-switcher:hover {
+            opacity: 1;
         }
     </style>
 </head>
 <body class="bg-amber-50">
-    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <div class="text-2xl font-bold playfair text-amber-800">Padaria Branco Quente</div>
-            <div class="hidden md:flex space-x-8 items-center">
-                <a href="index.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_home">Home</a>
-                <a href="menu.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_menu">Menu</a>
-                <a href="about.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_about">About</a>
-                <a href="contact.html" class="text-amber-800 font-medium hover:text-amber-600 transition-slow" data-i18n="nav_contact">Contact</a>
-
-                <!-- Language Switch -->
-                <div class="flex items-center space-x-2 ml-6">
-                    <button onclick="changeLanguage('en')" class="flex items-center space-x-1">
-                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="w-5 h-4">
-                        <span>EN</span>
-                    </button>
-                    <span>|</span>
-                    <button onclick="changeLanguage('pt')" class="flex items-center space-x-1">
-                        <img src="https://flagcdn.com/w20/pt.png" alt="Português" class="w-5 h-4">
-                        <span>PT</span>
-                    </button>
-                </div>
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold playfair text-amber-800">Padaria Branco Quente</div>
+                <div class="hidden md:flex items-center space-x-8"> <a href="index.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navHome">Início</a>
+                    <a href="menu.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navMenu">Menu</a>
+                    <a href="about.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="navAbout">Sobre Nós</a>
+                    <a href="contact.html" class="text-amber-800 font-medium hover:text-amber-600 transition-slow" data-i18n="navContact">Contactos</a>
+                
+                    <div class="flex items-center space-x-4 ml-8">
+                        <button id="lang-en" class="lang-switcher" data-lang="en">
+                            <img src="https://flagcdn.com/gb.svg" alt="English" class="w-6 h-auto rounded-sm">
+                        </button>
+                        <button id="lang-pt" class="lang-switcher" data-lang="pt">
+                            <img src="https://flagcdn.com/pt.svg" alt="Português" class="w-6 h-auto rounded-sm">
+                        </button>
+                    </div>
+                    </div>
+                <button class="md:hidden focus:outline-none" id="menu-toggle"> <i data-feather="menu" class="text-amber-800"></i>
+                </button>
             </div>
-            <button class="md:hidden">
-                <i data-feather="menu" class="text-amber-800"></i>
-            </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="contact-hero h-64 flex items-center justify-center text-white">
-        <div class="text-center" data-i18n="contact_header">
-            <h1 class="playfair text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-            <p class="text-xl">We'd love to hear from you</p>
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h1 class="playfair text-4xl md:text-5xl font-bold mb-4" data-i18n="contactHeroTitle">Contacte-nos</h1>
+            <p class="text-xl" data-i18n="contactHeroSubtitle">Gostaríamos muito de ouvir a sua opinião</p>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="py-16">
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12">
-            <!-- Form -->
-            <div class="lg:w-1/2" data-aos="fade-right">
-                <h2 class="playfair text-3xl font-bold text-amber-800 mb-6" data-i18n="contact_form_title">Send Us a Message</h2>
-                <form class="space-y-6">
-                    <label class="block">
-                        <span class="text-gray-700 mb-2 block" data-i18n="contact_name">Your Name</span>
-                        <input type="text" class="w-full px-4 py-2 border rounded-lg">
-                    </label>
-                    <label class="block">
-                        <span class="text-gray-700 mb-2 block" data-i18n="contact_email">Email Address</span>
-                        <input type="email" class="w-full px-4 py-2 border rounded-lg">
-                    </label>
-                    <label class="block">
-                        <span class="text-gray-700 mb-2 block" data-i18n="contact_message">Your Message</span>
-                        <textarea rows="5" class="w-full px-4 py-2 border rounded-lg"></textarea>
-                    </label>
-                    <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition-slow" data-i18n="contact_send">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-
-            <!-- Info -->
-            <div class="lg:w-1/2" data-aos="fade-left">
-                <div class="bg-white rounded-lg shadow-lg">
-                    <div class="p-6">
-                        <h3 class="playfair text-xl font-bold text-amber-800 mb-4" data-i18n="contact_visit">Visit Our Bakery</h3>
-                        <p class="text-gray-600" data-i18n="contact_address">Rua da Padaria 12, Monchique, Portugal</p>
-                        <p class="text-gray-600 mt-2" data-i18n="contact_phone">Phone: +351 282 912 345</p>
-                        <p class="text-gray-600 mt-2" data-i18n="contact_email_label">Email: info@brancoquente.com</p>
-                        <p class="text-gray-600 mt-2" data-i18n="contact_hours">Mon-Fri: 6am - 7pm | Sat: 6am - 5pm | Sun: 7am - 2pm</p>
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <h2 class="playfair text-3xl font-bold text-amber-800 mb-6" data-i18n="contactFormTitle">Envie-nos uma Mensagem</h2>
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2" data-i18n="contactFormName">O seu nome</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2" data-i18n="contactFormEmail">Endereço de email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 mb-2" data-i18n="contactFormMessage">A sua mensagem</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                        </div>
+                        <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition-slow inline-block" data-i18n="contactFormButton">
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2" data-aos="fade-left">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="map-placeholder">
+                            <div class="text-center p-6">
+                                <i data-feather="map-pin" class="w-12 h-12 mx-auto text-amber-600 mb-4"></i>
+                                <p class="text-lg font-medium" data-i18n="contactMapPlaceholder1">Aqui aparecerá o Google Maps</p>
+                                <p class="text-sm" data-i18n="contactMapPlaceholder2">a mostrar a localização da nossa padaria em Monchique</p>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h3 class="playfair text-xl font-bold text-amber-800 mb-4" data-i18n="contactInfoTitle">Visite a Nossa Padaria</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <i data-feather="map-pin" class="text-amber-600 mr-4 mt-1"></i>
+                                    <div>
+                                        <p class="font-medium" data-i18n="contactInfoAddressTitle">Morada</p>
+                                        <p class="text-gray-600">Rua da Padaria 12<br>Monchique, Portugal</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-feather="phone" class="text-amber-600 mr-4"></i>
+                                    <div>
+                                        <p class="font-medium" data-i18n="contactInfoPhoneTitle">Telefone</p>
+                                        <p class="text-gray-600">+351 282 912 345</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-feather="mail" class="text-amber-600 mr-4"></i>
+                                    <div>
+                                        <p class="font-medium" data-i18n="contactInfoEmailTitle">Email</p>
+                                        <p class="text-gray-600">info@brancoquente.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start pt-4"> <i data-feather="clock" class="text-amber-600 mr-4 mt-1"></i>
+                                    <div>
+                                        <p class="font-medium" data-i18n="contactInfoHoursTitle">Horário</p>
+                                        <p class="text-gray-600" data-i18n="contactInfoHoursDesc">Seg-Sex: 6h - 19h<br>Sáb: 6h - 17h<br>Dom: 7h - 14h</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="font-bold mb-4" data-i18n="contactInfoFollowTitle">Siga-nos</h4>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-full p-3 transition-slow" aria-label="Facebook">
+                                        <i data-feather="facebook" class="w-5 h-5"></i>
+                                    </a>
+                                    <a href="#" class="bg-amber-100 hover:bg-amber-200 text-amber-800 rounded-full p-3 transition-slow" aria-label="Instagram">
+                                        <i data-feather="instagram" class="w-5 h-5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="text-center text-gray-400">&copy; 2023 Padaria Branco Quente</div>
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="playfair text-xl font-bold mb-4">Padaria Branco Quente</h3>
+                    <p class="text-gray-400" data-i18n="footerDesc">Padaria tradicional portuguesa em Monchique desde 1987.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerNavTitle">Navegação</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navHome">Início</a></li>
+                        <li><a href="menu.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navMenu">Menu</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navAbout">Sobre Nós</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-slow" data-i18n="navContact">Contactos</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerHoursTitle">Horário</h4>
+                    <ul class="text-gray-400 space-y-2">
+                        <li data-i18n="footerHours1">Segunda - Sexta: 6h - 19h</li>
+                        <li data-i18n="footerHours2">Sábado: 6h - 17h</li>
+                        <li data-i18n="footerHours3">Domingo: 7h - 14h</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold mb-4" data-i18n="footerFollowTitle">Siga-nos</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow" aria-label="Facebook">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow" aria-label="Instagram">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-slow" aria-label="Twitter">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 mt-4">Rua da Padaria 12<br>Monchique, Portugal</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p data-i18n="footerCopyright">&copy; 2023 Padaria Deliciosa. Todos os direitos reservados.</p>
+            </div>
+        </div>
     </footer>
 
+    <script src="lang.js"></script>
+
     <script>
-        AOS.init();
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
         feather.replace();
+
+        // Menu mobile
+        const menuToggle = document.getElementById("menu-toggle");
+        if (menuToggle) {
+            menuToggle.addEventListener("click", function() {
+                const nav = document.querySelector("nav .md\\:flex");
+                nav.classList.toggle("hidden");
+            });
+        }
+
+        // --- Language Switcher Logic ---
+        const translations = window.translations;
+        
+        const getLanguage = () => {
+            let lang = localStorage.getItem('lang');
+            if (!lang) {
+                lang = 'en'; // Default to English
+                localStorage.setItem('lang', lang);
+            }
+            return lang;
+        };
+
+        const setLanguage = (lang) => {
+            localStorage.setItem('lang', lang);
+            translatePage(lang);
+            updateSwitcherUI(lang);
+        };
+
+        const translatePage = (lang) => {
+            if (!translations[lang]) {
+                console.error(`Translations for language "${lang}" not found.`);
+                return;
+            }
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    // Use innerHTML to support <br> tags in translations
+                    element.innerHTML = translations[lang][key]; 
+                }
+            });
+            // Update page title
+            const titleElement = document.querySelector('title[data-i18n]');
+            if (titleElement) {
+                const titleKey = titleElement.getAttribute('data-i18n');
+                if (translations[lang][titleKey]) {
+                    document.title = translations[lang][titleKey];
+                }
+            }
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+        };
+
+        const updateSwitcherUI = (lang) => {
+            document.querySelectorAll('.lang-switcher').forEach(switcher => {
+                if (switcher.getAttribute('data-lang') === lang) {
+                    switcher.classList.add('active');
+                } else {
+                    switcher.classList.remove('active');
+                }
+            });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentLang = getLanguage();
+            translatePage(currentLang);
+            updateSwitcherUI(currentLang);
+
+            // Add click listeners to buttons
+            const langEN = document.getElementById('lang-en');
+            const langPT = document.getElementById('lang-pt');
+            
+            if (langEN) {
+                langEN.addEventListener('click', () => setLanguage('en'));
+            }
+            if (langPT) {
+                langPT.addEventListener('click', () => setLanguage('pt'));
+            }
+        });
+        // --- End Language Switcher Logic ---
     </script>
 </body>
 </html>
