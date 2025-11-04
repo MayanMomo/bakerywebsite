@@ -1,112 +1,112 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="contact_title">Contact Us | Padaria Deliciosa</title>
+    <title data-i18n="contact_title">Contact Us | Padaria Branco Quente</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="lang.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
         body { font-family: 'Poppins', sans-serif; }
         .playfair { font-family: 'Playfair Display', serif; }
+        .transition-slow { transition: all 0.3s ease-in-out; }
         .contact-hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-            url('https://images.unsplash.com/photo-1564758866811-329e70a0442c?auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+            url('http://static.photos/food/1200x630/20');
             background-size: cover;
             background-position: center;
         }
-        .flag-icon { width: 24px; height: 16px; display: inline-block; margin-right: 5px; }
     </style>
 </head>
 <body class="bg-amber-50">
+    <!-- Navigation -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex justify-between items-center">
-                <div class="text-2xl font-bold playfair text-amber-800" data-i18n="brand_name">Padaria Deliciosa</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="index.html" class="text-gray-600 hover:text-amber-800 transition" data-i18n="nav_home">Home</a>
-                    <a href="menu.html" class="text-gray-600 hover:text-amber-800 transition" data-i18n="nav_menu">Menu</a>
-                    <a href="about.html" class="text-gray-600 hover:text-amber-800 transition" data-i18n="nav_about">About</a>
-                    <a href="contact.html" class="text-amber-800 font-medium hover:text-amber-600 transition" data-i18n="nav_contact">Contact</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <button onclick="setLanguage('en')" class="flex items-center">
-                        <img src="https://flagcdn.com/gb.svg" class="flag-icon" alt="English"> EN
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold playfair text-amber-800">Padaria Branco Quente</div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_home">Home</a>
+                <a href="menu.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_menu">Menu</a>
+                <a href="about.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_about">About</a>
+                <a href="contact.html" class="text-amber-800 font-medium hover:text-amber-600 transition-slow" data-i18n="nav_contact">Contact</a>
+
+                <!-- Language Switch -->
+                <div class="flex items-center space-x-2 ml-6">
+                    <button onclick="changeLanguage('en')" class="flex items-center space-x-1">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="w-5 h-4">
+                        <span>EN</span>
                     </button>
-                    <button onclick="setLanguage('pt')" class="flex items-center">
-                        <img src="https://flagcdn.com/pt.svg" class="flag-icon" alt="Português"> PT
+                    <span>|</span>
+                    <button onclick="changeLanguage('pt')" class="flex items-center space-x-1">
+                        <img src="https://flagcdn.com/w20/pt.png" alt="Português" class="w-5 h-4">
+                        <span>PT</span>
                     </button>
                 </div>
             </div>
+            <button class="md:hidden">
+                <i data-feather="menu" class="text-amber-800"></i>
+            </button>
         </div>
     </nav>
 
-    <section class="contact-hero h-80 flex items-center justify-center text-white">
-        <div class="text-center" data-aos="fade-up">
-            <h1 class="playfair text-4xl md:text-5xl font-bold mb-4" data-i18n="contact_header">Get in Touch</h1>
-            <p class="text-lg" data-i18n="contact_subheader">We’d love to hear from you! Send us a message or visit our bakery.</p>
+    <!-- Hero Section -->
+    <section class="contact-hero h-64 flex items-center justify-center text-white">
+        <div class="text-center" data-i18n="contact_header">
+            <h1 class="playfair text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+            <p class="text-xl">We'd love to hear from you</p>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div data-aos="fade-right">
-                    <h2 class="text-3xl playfair font-bold text-amber-800 mb-6" data-i18n="contact_form_title">Send a Message</h2>
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-gray-700 mb-2" data-i18n="form_name">Name</label>
-                            <input type="text" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2" data-i18n="form_email">Email</label>
-                            <input type="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600">
-                        </div>
-                        <div>
-                            <label class="block text-gray-700 mb-2" data-i18n="form_message">Message</label>
-                            <textarea class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-600" rows="5"></textarea>
-                        </div>
-                        <button type="submit" class="bg-amber-700 text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition" data-i18n="form_send">Send Message</button>
-                    </form>
-                </div>
-                <div data-aos="fade-left">
-                    <h2 class="text-3xl playfair font-bold text-amber-800 mb-6" data-i18n="contact_info_title">Contact Information</h2>
-                    <div class="space-y-6 text-gray-700">
-                        <div class="flex items-start">
-                            <i data-feather="map-pin" class="w-6 h-6 mr-4 text-amber-600"></i>
-                            <p data-i18n="address">Rua Principal 123, Monchique, Portugal</p>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="phone" class="w-6 h-6 mr-4 text-amber-600"></i>
-                            <p data-i18n="phone">+351 912 345 678</p>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="mail" class="w-6 h-6 mr-4 text-amber-600"></i>
-                            <p>padaria@deliciosa.pt</p>
-                        </div>
-                        <div class="flex items-center">
-                            <i data-feather="clock" class="w-6 h-6 mr-4 text-amber-600"></i>
-                            <p data-i18n="hours">Mon - Sat: 7:00 - 19:00 | Sun: 7:00 - 13:00</p>
-                        </div>
+        <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-12">
+            <!-- Form -->
+            <div class="lg:w-1/2" data-aos="fade-right">
+                <h2 class="playfair text-3xl font-bold text-amber-800 mb-6" data-i18n="contact_form_title">Send Us a Message</h2>
+                <form class="space-y-6">
+                    <label class="block">
+                        <span class="text-gray-700 mb-2 block" data-i18n="contact_name">Your Name</span>
+                        <input type="text" class="w-full px-4 py-2 border rounded-lg">
+                    </label>
+                    <label class="block">
+                        <span class="text-gray-700 mb-2 block" data-i18n="contact_email">Email Address</span>
+                        <input type="email" class="w-full px-4 py-2 border rounded-lg">
+                    </label>
+                    <label class="block">
+                        <span class="text-gray-700 mb-2 block" data-i18n="contact_message">Your Message</span>
+                        <textarea rows="5" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                    </label>
+                    <button type="submit" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition-slow" data-i18n="contact_send">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Info -->
+            <div class="lg:w-1/2" data-aos="fade-left">
+                <div class="bg-white rounded-lg shadow-lg">
+                    <div class="p-6">
+                        <h3 class="playfair text-xl font-bold text-amber-800 mb-4" data-i18n="contact_visit">Visit Our Bakery</h3>
+                        <p class="text-gray-600" data-i18n="contact_address">Rua da Padaria 12, Monchique, Portugal</p>
+                        <p class="text-gray-600 mt-2" data-i18n="contact_phone">Phone: +351 282 912 345</p>
+                        <p class="text-gray-600 mt-2" data-i18n="contact_email_label">Email: info@brancoquente.com</p>
+                        <p class="text-gray-600 mt-2" data-i18n="contact_hours">Mon-Fri: 6am - 7pm | Sat: 6am - 5pm | Sun: 7am - 2pm</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-amber-800 text-white py-6">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; <span id="year"></span> <span data-i18n="brand_name">Padaria Deliciosa</span>. <span data-i18n="footer_rights">All rights reserved.</span></p>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="text-center text-gray-400">&copy; 2023 Padaria Branco Quente</div>
     </footer>
 
-    <script src="lang.js"></script>
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+        AOS.init();
         feather.replace();
     </script>
 </body>
