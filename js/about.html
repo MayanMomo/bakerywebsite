@@ -1,101 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="about_title">About Us | Padaria Branco Quente</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script defer src="js/translations.js"></script>
-    <script defer src="js/lang.js"></script>
+    <title data-i18n="about_title">About Us | Padaria Deliciosa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .transition-slow { transition: all 0.3s ease-in-out; }
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+            url('https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .flag-icon { width: 24px; height: 16px; display: inline-block; margin-right: 5px; }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
-
-    <!-- ✅ Navbar with language switcher -->
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-yellow-700">Padaria Branco Quente</a>
-            <div class="space-x-6 flex items-center">
-                <a href="index.html" data-i18n="nav_home" class="hover:text-yellow-600">Home</a>
-                <a href="menu.html" data-i18n="nav_menu" class="hover:text-yellow-600">Menu</a>
-                <a href="about.html" data-i18n="nav_about" class="hover:text-yellow-600 font-semibold text-yellow-600">About</a>
-                <a href="contact.html" data-i18n="nav_contact" class="hover:text-yellow-600">Contact</a>
-
-                <!-- Language Switch -->
-                <div class="flex items-center space-x-2">
-                    <button id="lang-en" class="flex items-center space-x-1 hover:opacity-70">
-                        <img src="https://flagcdn.com/w20/gb.png" class="w-5 h-4" alt="UK flag">
-                        <span>EN</span>
+<body class="bg-amber-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold playfair text-amber-800" data-i18n="brand_name">Padaria Deliciosa</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_home">Home</a>
+                    <a href="menu.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_menu">Menu</a>
+                    <a href="about.html" class="text-amber-800 font-medium hover:text-amber-600 transition-slow" data-i18n="nav_about">About</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-amber-800 transition-slow" data-i18n="nav_contact">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="setLanguage('en')" class="flex items-center">
+                        <img src="https://flagcdn.com/gb.svg" class="flag-icon" alt="English"> EN
                     </button>
-                    <span>|</span>
-                    <button id="lang-pt" class="flex items-center space-x-1 hover:opacity-70">
-                        <img src="https://flagcdn.com/w20/pt.png" class="w-5 h-4" alt="PT flag">
-                        <span>PT</span>
+                    <button onclick="setLanguage('pt')" class="flex items-center">
+                        <img src="https://flagcdn.com/pt.svg" class="flag-icon" alt="Português"> PT
                     </button>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <!-- ✅ Hero Section -->
-    <section class="bg-[url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center h-64 flex items-center justify-center text-white">
-        <h1 class="text-4xl font-bold" data-i18n="about_hero_title">Our Story</h1>
+    <section class="about-hero h-96 flex items-center justify-center text-white">
+        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+            <h1 class="playfair text-4xl md:text-6xl font-bold mb-6" data-i18n="our_story">Our Story</h1>
+            <p class="text-xl mb-8 max-w-2xl mx-auto" data-i18n="hero_subtitle">Three generations of baking tradition in Monchique</p>
+        </div>
     </section>
 
-    <!-- ✅ About Section -->
-    <section class="container mx-auto px-6 py-16">
-        <h2 class="text-3xl font-bold mb-6 text-center" data-i18n="about_heading">From Tradition to Every Table</h2>
-        <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12" data-i18n="about_text">
-            Founded in 1987 in the heart of Monchique, Padaria Branco Quente has been dedicated to bringing fresh bread, pastries, and handmade delicacies to our community every morning.
-        </p>
-
-        <!-- Team Section -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-                <img src="https://plus.unsplash.com/premium_photo-1723672977436-8aa1331bd589?q=80&w=688&auto=format&fit=crop" alt="Head baker Carlos Mendes" class="w-40 h-40 rounded-full object-cover mx-auto shadow-md">
-                <h3 class="font-semibold mt-4">Carlos Mendes</h3>
-                <p data-i18n="about_role_baker" class="text-gray-600">Master Baker</p>
-            </div>
-
-            <div>
-                <img src="https://images.unsplash.com/photo-1556912998-c57cc6b63cd7?auto=format&fit=crop&w=688&q=80" alt="Pastry chef Ana Silva" class="w-40 h-40 rounded-full object-cover mx-auto shadow-md">
-                <h3 class="font-semibold mt-4">Ana Silva</h3>
-                <p data-i18n="about_role_pastry">Pastry Chef</p>
-            </div>
-
-            <div>
-                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=688&q=80" alt="Manager João Ribeiro" class="w-40 h-40 rounded-full object-cover mx-auto shadow-md">
-                <h3 class="font-semibold mt-4">João Ribeiro</h3>
-                <p data-i18n="about_role_manager" class="text-gray-600">Store Manager</p>
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=800&q=80" alt="Original bakery" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                    <h2 class="playfair text-3xl md:text-4xl font-bold text-amber-800 mb-6" data-i18n="from_humble">From Humble Beginnings</h2>
+                    <p class="text-gray-700 mb-4" data-i18n="history_1">Founded in 1987 by João and Maria Silva, Padaria Branco Quente started as a small neighborhood bakery serving fresh bread to the residents of Monchique.</p>
+                    <p class="text-gray-700 mb-6" data-i18n="history_2">What began as a modest wood-fired oven operation has grown into a beloved local institution, now run by their daughter Ana and her husband Carlos, who continue the family traditions while adding their own innovations.</p>
+                    <div class="flex items-center text-gray-700">
+                        <i data-feather="clock" class="mr-2 text-amber-600"></i>
+                        <span data-i18n="open_since">Open daily since 1987</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ✅ Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-                <h3 class="font-bold mb-2" data-i18n="footer_navigation">Navigation</h3>
-                <ul>
-                    <li><a href="index.html" data-i18n="nav_home" class="hover:underline">Home</a></li>
-                    <li><a href="menu.html" data-i18n="nav_menu" class="hover:underline">Menu</a></li>
-                    <li><a href="about.html" data-i18n="nav_about" class="hover:underline">About</a></li>
-                    <li><a href="contact.html" data-i18n="nav_contact" class="hover:underline">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-bold mb-2" data-i18n="footer_follow">Follow Us</h3>
-                <p>Instagram | Facebook</p>
-            </div>
-            <div>
-                <h3 class="font-bold mb-2" data-i18n="footer_hours">Hours</h3>
-                <p>Mon–Fri: 7:00–18:00</p>
-                <p>Sat–Sun: 8:00–14:00</p>
+    <section class="py-20 bg-amber-50">
+        <div class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto" data-aos="fade-up">
+                <h2 class="playfair text-3xl md:text-4xl font-bold text-amber-800 mb-6" data-i18n="mission_title">Our Mission & Values</h2>
+                <p class="text-gray-700 mb-8" data-i18n="mission_text">At Padaria Deliciosa, we believe in preserving Portuguese baking traditions while using only the finest local ingredients.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                        <i data-feather="heart" class="w-10 h-10 mx-auto text-amber-600 mb-4"></i>
+                        <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="passion">Passion</h3>
+                        <p class="text-gray-600" data-i18n="passion_text">Baking with love and dedication in every product</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                        <i data-feather="award" class="w-10 h-10 mx-auto text-amber-600 mb-4"></i>
+                        <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="quality">Quality</h3>
+                        <p class="text-gray-600" data-i18n="quality_text">Only the finest local ingredients in our recipes</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                        <i data-feather="users" class="w-10 h-10 mx-auto text-amber-600 mb-4"></i>
+                        <h3 class="playfair text-xl font-bold text-amber-800 mb-2" data-i18n="community">Community</h3>
+                        <p class="text-gray-600" data-i18n="community_text">Serving our neighbors with pride since 1987</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="text-center text-gray-400 mt-4">
-            &copy; 2025 Padaria Branco Quente. <span data-i18n="footer_rights">All rights reserved.</span>
-        </div>
-    </footer>
+    </section>
 
+    <script src="lang.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+        feather.replace();
+    </script>
 </body>
 </html>
