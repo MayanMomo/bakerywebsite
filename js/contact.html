@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="contact_title">Contact Us | Padaria Branco Quente</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script defer src="js/translations.js"></script>
+    <script defer src="js/lang.js"></script>
+
+    <style>
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('https://images.unsplash.com/photo-1517685352821-92cf88aee5a5?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- ✅ Navbar -->
+    <header class="bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-yellow-700">Padaria Branco Quente</a>
+            <div class="space-x-6 flex items-center">
+                <a href="index.html" data-i18n="nav_home" class="hover:text-yellow-600">Home</a>
+                <a href="menu.html" data-i18n="nav_menu" class="hover:text-yellow-600">Menu</a>
+                <a href="about.html" data-i18n="nav_about" class="hover:text-yellow-600">About</a>
+                <a href="contact.html" data-i18n="nav_contact" class="text-yellow-600 font-semibold">Contact</a>
+
+                <!-- Language Switch -->
+                <div class="flex items-center space-x-2">
+                    <button id="lang-en" class="flex items-center space-x-1 hover:opacity-70">
+                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="w-5 h-4">
+                        <span>EN</span>
+                    </button>
+                    <span>|</span>
+                    <button id="lang-pt" class="flex items-center space-x-1 hover:opacity-70">
+                        <img src="https://flagcdn.com/w20/pt.png" alt="Português" class="w-5 h-4">
+                        <span>PT</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ✅ Hero Section -->
+    <section class="contact-hero h-64 flex items-center justify-center text-white text-center">
+        <div>
+            <h1 class="text-4xl font-bold mb-2" data-i18n="contact_heading">Contact Us</h1>
+            <p class="text-lg" data-i18n="contact_subheading">We’d love to hear from you</p>
+        </div>
+    </section>
+
+    <!-- ✅ Main Content -->
+    <section class="container mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <!-- Contact Form -->
+            <div>
+                <h2 class="text-2xl font-bold mb-6" data-i18n="contact_form_title">Send Us a Message</h2>
+                <form class="space-y-6">
+                    <div>
+                        <label class="block mb-2" for="name" data-i18n="contact_name">Your Name</label>
+                        <input id="name" type="text" class="w-full border px-4 py-2 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block mb-2" for="email" data-i18n="contact_email">Email Address</label>
+                        <input id="email" type="email" class="w-full border px-4 py-2 rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block mb-2" for="message" data-i18n="contact_message">Your Message</label>
+                        <textarea id="message" rows="4" class="w-full border px-4 py-2 rounded-lg"></textarea>
+                    </div>
+                    <button type="submit" class="bg-yellow-600 text-white px-6 py-2 rounded-full hover:bg-yellow-700" data-i18n="contact_send">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-bold mb-4" data-i18n="contact_visit_title">Visit Our Bakery</h3>
+                <p class="text-gray-600 mb-6" data-i18n="contact_visit_text">Rua da Padaria 12, Monchique, Portugal</p>
+
+                <ul class="space-y-4">
+                    <li><strong data-i18n="contact_address">Address:</strong> Rua da Padaria 12</li>
+                    <li><strong data-i18n="contact_phone">Phone:</strong> +351 282 912 345</li>
+                    <li><strong data-i18n="contact_email_label">Email:</strong> info@brancoquente.com</li>
+                    <li><strong data-i18n="contact_hours">Opening Hours:</strong> Mon–Fri 7am–6pm, Sat–Sun 8am–2pm</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ✅ Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div>
+                <h3 class="font-bold mb-2" data-i18n="footer_navigation">Navigation</h3>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home" class="hover:underline">Home</a></li>
+                    <li><a href="menu.html" data-i18n="nav_menu" class="hover:underline">Menu</a></li>
+                    <li><a href="about.html" data-i18n="nav_about" class="hover:underline">About</a></li>
+                    <li><a href="contact.html" data-i18n="nav_contact" class="hover:underline">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2" data-i18n="footer_follow">Follow Us</h3>
+                <p>Instagram | Facebook</p>
+            </div>
+            <div>
+                <h3 class="font-bold mb-2" data-i18n="footer_hours">Hours</h3>
+                <p>Mon–Fri: 7:00–18:00</p>
+                <p>Sat–Sun: 8:00–14:00</p>
+            </div>
+        </div>
+        <div class="text-center text-gray-400 mt-4">
+            &copy; 2025 Padaria Branco Quente. <span data-i18n="footer_rights">All rights reserved.</span>
+        </div>
+    </footer>
+
+</body>
+</html>
