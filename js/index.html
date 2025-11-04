@@ -3,77 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="nav_home">Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script defer src="js/translations.js"></script>
-    <script defer src="js/lang.js"></script>
+    <title data-i18n="title_home">Padaria Branco Quente | Welcome</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        .playfair { font-family: 'Playfair Display', serif; }
+        .transition-slow { transition: all 0.3s ease-in-out; }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+            url('https://images.unsplash.com/photo-1567752588693-ad10a647c5a3?q=80&w=1460&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-amber-50">
 
-    <!-- ✅ Navbar -->
-    <header class="bg-white shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-yellow-700">Padaria Branco Quente</a>
-            <div class="space-x-6 flex items-center">
-                <a href="index.html" data-i18n="nav_home" class="hover:text-yellow-600">Home</a>
-                <a href="menu.html" data-i18n="nav_menu" class="hover:text-yellow-600">Menu</a>
-                <a href="about.html" data-i18n="nav_about" class="hover:text-yellow-600">About</a>
-                <a href="contact.html" data-i18n="nav_contact" class="hover:text-yellow-600">Contact</a>
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold playfair text-amber-800">Padaria Branco Quente</div>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-amber-800 font-medium" data-i18n="nav_home">Home</a>
+                <a href="menu.html" class="text-gray-600 hover:text-amber-800" data-i18n="nav_menu">Menu</a>
+                <a href="about.html" class="text-gray-600 hover:text-amber-800" data-i18n="nav_about">About</a>
+                <a href="contact.html" class="text-gray-600 hover:text-amber-800" data-i18n="nav_contact">Contact</a>
 
-                <!-- ✅ Language Switcher -->
-                <div class="flex items-center space-x-2">
-                    <button id="lang-en" class="flex items-center space-x-1 hover:opacity-70">
-                        <img src="https://flagcdn.com/w20/gb.png" alt="English" class="w-5 h-4">
+                <div class="flex items-center space-x-2 ml-4">
+                    <button onclick="setLanguage('en')" class="flex items-center space-x-1">
+                        <img src="https://flagcdn.com/gb.svg" class="w-5 h-5 rounded" alt="English">
                         <span>EN</span>
                     </button>
-                    <span>|</span>
-                    <button id="lang-pt" class="flex items-center space-x-1 hover:opacity-70">
-                        <img src="https://flagcdn.com/w20/pt.png" alt="Português" class="w-5 h-4">
+                    <span>/</span>
+                    <button onclick="setLanguage('pt')" class="flex items-center space-x-1">
+                        <img src="https://flagcdn.com/pt.svg" class="w-5 h-5 rounded" alt="Português">
                         <span>PT</span>
                     </button>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <!-- ✅ Hero Section -->
-    <section class="relative bg-cover bg-center h-screen" style="background-image: url('https://images.unsplash.com/photo-1567752588693-ad10a647c5a3?q=80&w=1460&auto=format&fit=crop&w=1920&q=80');">
-        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-        <div class="relative container mx-auto h-full flex flex-col justify-center items-center text-center text-white">
-            <h1 data-i18n="hero_title" class="text-4xl md:text-6xl font-bold mb-4">Welcome to Padaria Branco Quente</h1>
-            <p data-i18n="hero_subtitle" class="text-lg md:text-2xl mb-6">Freshly baked bread and traditional pastries every day.</p>
-            <a href="menu.html" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-md text-lg font-medium shadow-lg">
-                <span data-i18n="nav_menu">Menu</span>
-            </a>
+    <section class="hero-section h-screen flex items-center justify-center text-center text-white">
+        <div data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold playfair mb-4" data-i18n="hero_title">Freshly Baked Every Morning</h1>
+            <p class="text-lg md:text-2xl mb-8" data-i18n="hero_subtitle">Traditional Portuguese bakery with love and passion.</p>
+            <a href="menu.html" class="bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-8 rounded-full transition-slow" data-i18n="hero_button">Explore Our Menu</a>
         </div>
     </section>
 
-    <!-- ✅ Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-16">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-                <h3 class="font-bold mb-2" data-i18n="footer_navigation">Navigation</h3>
-                <ul>
-                    <li><a href="index.html" data-i18n="nav_home" class="hover:underline">Home</a></li>
-                    <li><a href="menu.html" data-i18n="nav_menu" class="hover:underline">Menu</a></li>
-                    <li><a href="about.html" data-i18n="nav_about" class="hover:underline">About</a></li>
-                    <li><a href="contact.html" data-i18n="nav_contact" class="hover:underline">Contact</a></li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-bold mb-2" data-i18n="footer_follow">Follow Us</h3>
-                <p>Instagram | Facebook</p>
-            </div>
-            <div>
-                <h3 class="font-bold mb-2" data-i18n="footer_hours">Hours</h3>
-                <p>Mon–Fri: 7:00–18:00</p>
-                <p>Sat–Sun: 8:00–14:00</p>
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold text-amber-800 playfair mb-6" data-i18n="section_title">Why Choose Us?</h2>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="section_text">We use local ingredients, traditional recipes and a passion for baking to bring you the best bread and pastries in Monchique.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div data-aos="fade-up" class="p-6 shadow-lg rounded-lg">
+                    <h3 class="font-bold text-xl text-amber-800 mb-2" data-i18n="feature_1_title">Daily Fresh</h3>
+                    <p class="text-gray-600" data-i18n="feature_1_text">All our products are baked fresh daily in-house.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200" class="p-6 shadow-lg rounded-lg">
+                    <h3 class="font-bold text-xl text-amber-800 mb-2" data-i18n="feature_2_title">Local Ingredients</h3>
+                    <p class="text-gray-600" data-i18n="feature_2_text">Supporting local farmers and suppliers.</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400" class="p-6 shadow-lg rounded-lg">
+                    <h3 class="font-bold text-xl text-amber-800 mb-2" data-i18n="feature_3_title">Traditional Recipes</h3>
+                    <p class="text-gray-600" data-i18n="feature_3_text">Using authentic recipes passed down through generations.</p>
+                </div>
             </div>
         </div>
-        <div class="text-center mt-4 text-gray-400">
-            <p>&copy; 2025 <span class="font-semibold">Padaria Branco Quente</span>. <span data-i18n="footer_rights">All rights reserved.</span></p>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400" data-i18n="footer_text">© 2023 Padaria Branco Quente. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="lang.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        setLanguage('en');
+    </script>
 </body>
 </html>
