@@ -1,144 +1,243 @@
-// js/lang.js
-// Single-file language system. English default. Supports:
-// - data-i18n="key"           -> sets textContent
-// - data-i18n-attr="attr:key" -> sets attribute (e.g. placeholder:title:alt)
-// - data-i18n-html="key"      -> sets innerHTML (use sparingly for structured content)
+// lang.js
+window.translations = {
+  "en": {
+    "pageTitle": "Padaria Branco Quente | Artisan Bakery in Monchique",
+    "navHome": "Home",
+    "navMenu": "Menu",
+    "navAbout": "About Us",
+    "navContact": "Contact",
+    "heroTitle": "Artisan Bakery of Monchique",
+    "heroSubtitle": "Traditional Portuguese breads and pastries made with love since 1987",
+    "heroButton": "View Menu",
+    "aboutImageCaption": "Cozy interior of our artisan bakery.",
+    "aboutTitle": "Our History",
+    "aboutDesc1": "Founded in the heart of Monchique, Padaria Branco Quente has been serving the community with traditional Portuguese products for over three decades.",
+    "aboutDesc2": "We use only the best local ingredients: flour from Alentejo and eggs from free-range chickens in the Algarve.",
+    "aboutFeature1": "Wood-fired oven",
+    "aboutFeature2": "Organic ingredients",
+    "aboutFeature3": "Family recipes",
+    "aboutFeature4": "Fresh every day",
+    "productsTitle": "Our Specialties",
+    "productsSubtitle": "Discover the products that make our customers return every day",
+    "product1Title": "Pão de Monchique",
+    "product1Desc": "Our most emblematic bread, with a crispy crust and soft crumb, baked in a wood-fired oven.",
+    "product2Title": "Pastel de Nata",
+    "product2Desc": "Delicious custard tarts with crispy puff pastry and sprinkled with cinnamon.",
+    "product3Title": "Honey Cake",
+    "product3Desc": "Traditional honey cake from the Algarve, enriched with local almonds.",
+    "productsButton": "View Full Menu",
+    "ctaTitle": "Visit Our Bakery in Monchique",
+    "ctaSubtitle": "We bake fresh bread every morning starting at 5 am. Come smell the aroma!",
+    "ctaButton1": "Get Directions",
+    "ctaButton2": "Contact Us",
+    "footerDesc": "Traditional Portuguese bakery in Monchique since 1987.",
+    "footerNavTitle": "Navigation",
+    "footerHoursTitle": "Opening Hours",
+    "footerHours1": "Monday - Friday: 6am - 7pm",
+    "footerHours2": "Saturday: 6am - 5pm",
+    "footerHours3": "Sunday: 7am - 2pm",
+    "footerFollowTitle": "Follow Us",
+    "footerCopyright": "&copy; 2023 Padaia Deliciosa. All rights reserved.",
+    
+    "menuPageTitle": "Menu | Padaria Branco Quente",
+    "menuHeaderTitle": "Our Menu",
+    "menuHeaderSubtitle": "Traditional Portuguese bakery products made with love and local ingredients",
+    "menuBreadsTitle": "Breads",
+    "menuBread1Title": "Pão de Monchique",
+    "menuBread1Desc": "Our wood-fired oven bread with a crispy crust and fluffy crumb.",
+    "menuBread2Title": "Pão Alentejano",
+    "menuBread2Desc": "Traditional round bread from Alentejo, with a dense crumb and authentic flavor.",
+    "menuBread3Title": "Rye Bread",
+    "menuBread3Desc": "Robust rye bread, with an intense flavor and consistent texture.",
+    "menuPastriesTitle": "Pastries",
+    "menuPastry1Title": "Pastel de Nata",
+    "menuPastry1Desc": "Creamy custard tarts with crispy puff pastry and a touch of cinnamon.",
+    "menuPastry1Price": "€1.20 each",
+    "menuPastry2Title": "Bolo de Arroz",
+    "menuPastry2Desc": "Rice flour muffins with a light texture and delicate flavor.",
+    "menuPastry2Price": "€1.00 each",
+    "menuPastry3Title": "Honey Cake",
+    "menuPastry3Desc": "Algarve honey cake, enriched with local honey and almonds.",
+    "menuPastry3Price": "€3.50 (slice)",
+    "menuDrinksTitle": "Drinks",
+    "menuDrink1Title": "Bica (Espresso)",
+    "menuDrink1Desc": "Intense Portuguese-style espresso, made with selected beans.",
+    "menuDrink2Title": "Galão",
+    "menuDrink2Desc": "Coffee with milk served in a tall glass, perfect with a pastry.",
+    "menuDrink3Title": "Fruit Juice",
+    "menuDrink3Desc": "Natural juices from fresh Algarve fruits, squeezed to order.",
 
-const translations = {
-  en: {
-    // NAV
-    nav_home: "Home",
-    nav_menu: "Menu",
-    nav_about: "About",
-    nav_contact: "Contact",
+    "aboutPageTitle": "About Us | Padaria Branco Quente",
+    "aboutHeroTitle": "Our History",
+    "aboutHeroSubtitle": "Three generations of tradition in Monchique",
+    "aboutFig1Caption": "Our first bakery in Monchique.",
+    "aboutStoryTitle": "From Humble Beginnings",
+    "aboutStoryDesc1": "Founded in 1987 by João and Maria Silva, Padaria Deliciosa started as a small neighborhood bakery serving fresh bread to the people of Monchique.",
+    "aboutStoryDesc2": "What began as a modest wood-fired oven has grown into a local institution, now managed by daughter Ana and her husband Carlos, who continue the family tradition with a modern touch.",
+    "aboutStoryFact": "Open every day since 1987",
+    "aboutMissionTitle": "Our Mission & Values",
+    "aboutMissionDesc": "At Padaria Deliciosa, we believe in preserving Portuguese traditions, using only the best local ingredients. Our commitment to quality has remained unchanged for over three decades.",
+    "aboutValue1Title": "Passion",
+    "aboutValue1Desc": "We make every loaf and cake with love and dedication.",
+    "aboutValue2Title": "Quality",
+    "aboutValue2Desc": "We use only excellent local ingredients.",
+    "aboutValue3Title": "Community",
+    "aboutValue3Desc": "Proudly serving Monchique since 1987.",
+    "aboutTeamTitle": "Our Team",
+    "aboutTeamSubtitle": "The faces behind your favorite products.",
+    "aboutTeam1FigCap": "Ana Silva in the bakery.",
+    "aboutTeam1Name": "Ana Silva",
+    "aboutTeam1Role": "Owner & Baker",
+    "aboutTeam1Desc": "Daughter of the founders, she grew up in the bakery and studied pastry in Lisbon before taking over the family business.",
+    "aboutTeam2FigCap": "Carlos preparing traditional sweets.",
+    "aboutTeam2Name": "Carlos Mendes",
+    "aboutTeam2Role": "Pastry Chef",
+    "aboutTeam2Desc": "Specialist in traditional Portuguese pastry, with over 20 years of experience.",
+    "aboutTeam3FigCap": "Miguel by the wood-fired oven.",
+    "aboutTeam3Name": "Miguel Costa",
+    "aboutTeam3Role": "Master Baker",
+    "aboutTeam3Desc": "Our wood-fired oven specialist who starts baking bread at 3 am.",
+    "aboutCtaTitle": "Visit Our Bakery",
+    "aboutCtaSubtitle": "Come experience the tradition and taste of true Portuguese baking.",
+    "aboutCtaBtn1": "View Menu",
+    "aboutCtaBtn2": "Contact Us",
 
-    // INDEX / HERO
-    hero_title: "Welcome to Padaria Branco Quente",
-    hero_subtitle: "Freshly baked bread and traditional pastries every day.",
-
-    // MENU
-    menu_hero_title: "Our Menu",
-    menu_section_title: "Freshly Baked Goods",
-    // Example product keys (add more if needed)
-    prod_pao_title: "Pão de Monchique",
-    prod_pao_desc: "Our signature bread with a crispy crust and soft interior.",
-    prod_nata_title: "Pastel de Nata",
-    prod_nata_desc: "Creamy custard tart with flaky pastry and cinnamon.",
-
-    // ABOUT
-    about_title: "About Us",
-    our_story: "Our Story",
-    hero_subtitle_about: "Three generations of baking tradition in Monchique",
-    from_humble: "From Humble Beginnings",
-    history_1: "Founded in 1987 by João and Maria Silva, Padaria Branco Quente started as a small neighborhood bakery serving fresh bread to the residents of Monchique.",
-    history_2: "What began as a modest wood-fired oven operation has grown into a beloved local institution, now run by their daughter Ana and her husband Carlos.",
-
-    // CONTACT
-    contact_title: "Contact Us",
-    contact_header: "Get in Touch",
-    contact_subheader: "We’d love to hear from you! Send us a message or visit our bakery.",
-    form_name: "Name",
-    form_email: "Email",
-    form_message: "Message",
-    form_send: "Send Message",
-
-    // FOOTER
-    footer_rights: "All rights reserved.",
-    footer_navigation: "Navigation",
-    footer_hours: "Hours",
+    "contactPageTitle": "Contact | Padaria Branco Quente",
+    "contactHeroTitle": "Contact Us",
+    "contactHeroSubtitle": "We would love to hear from you",
+    "contactFormTitle": "Send Us a Message",
+    "contactFormName": "Your name",
+    "contactFormEmail": "Email address",
+    "contactFormMessage": "Your message",
+    "contactFormButton": "Send Message",
+    "contactMapPlaceholder1": "Google Maps will appear here",
+    "contactMapPlaceholder2": "showing our bakery's location in Monchique",
+    "contactInfoTitle": "Visit Our Bakery",
+    "contactInfoAddressTitle": "Address",
+    "contactInfoPhoneTitle": "Phone",
+    "contactInfoEmailTitle": "Email",
+    "contactInfoHoursTitle": "Opening Hours",
+    "contactInfoHoursDesc": "Mon-Fri: 6am - 7pm<br>Sat: 6am - 5pm<br>Sun: 7am - 2pm",
+    "contactInfoFollowTitle": "Follow Us"
   },
+  "pt": {
+    "pageTitle": "Padaria Branco Quente | Padaria Artesanal em Monchique",
+    "navHome": "Início",
+    "navMenu": "Menu",
+    "navAbout": "Sobre Nós",
+    "navContact": "Contacto",
+    "heroTitle": "Padaria Artesanal de Monchique",
+    "heroSubtitle": "Pães e doces tradicionais portugueses feitos com amor desde 1987",
+    "heroButton": "Ver Menu",
+    "aboutImageCaption": "Interior acolhedor da nossa padaria artesanal.",
+    "aboutTitle": "A Nossa História",
+    "aboutDesc1": "Fundada no coração de Monchique, a Padaria Branco Quente serve a comunidade com produtos tradicionais portugueses há mais de três décadas.",
+    "aboutDesc2": "Usamos apenas os melhores ingredientes locais: farinha do Alentejo e ovos de galinhas criadas ao ar livre no Algarve.",
+    "aboutFeature1": "Forno a lenha",
+    "aboutFeature2": "Ingredientes biológicos",
+    "aboutFeature3": "Receitas de família",
+    "aboutFeature4": "Fresco todos os dias",
+    "productsTitle": "As Nossas Especialidades",
+    "productsSubtitle": "Descubra os produtos que fazem os nossos clientes regressar todos os dias",
+    "product1Title": "Pão de Monchique",
+    "product1Desc": "O nosso pão mais emblemático, com crosta estaladiça e miolo macio, cozido em forno a lenha.",
+    "product2Title": "Pastel de Nata",
+    "product2Desc": "Deliciosas tartes de nata com massa folhada crocante e polvilhadas com canela.",
+    "product3Title": "Bolo de Mel",
+    "product3Desc": "Bolo tradicional de mel do Algarve, enriquecido com amêndoas locais.",
+    "productsButton": "Ver Menu Completo",
+    "ctaTitle": "Visite a Nossa Padaria em Monchique",
+    "ctaSubtitle": "Cozemos pão fresco todas as manhãs a partir das 5h. Venha sentir o aroma!",
+    "ctaButton1": "Obter Direções",
+    "ctaButton2": "Contactar",
+    "footerDesc": "Padaria tradicional portuguesa em Monchique desde 1987.",
+    "footerNavTitle": "Navegação",
+    "footerHoursTitle": "Horário",
+    "footerHours1": "Segunda - Sexta: 6h - 19h",
+    "footerHours2": "Sábado: 6h - 17h",
+    "footerHours3": "Domingo: 7h - 14h",
+    "footerFollowTitle": "Siga-nos",
+    "footerCopyright": "&copy; 2023 Padaia Deliciosa. Todos os direitos reservados.",
 
-  pt: {
-    // NAV
-    nav_home: "Início",
-    nav_menu: "Menu",
-    nav_about: "Sobre",
-    nav_contact: "Contacto",
+    "menuPageTitle": "Menu | Padaria Branco Quente",
+    "menuHeaderTitle": "O Nosso Menu",
+    "menuHeaderSubtitle": "Produtos de padaria tradicionais portugueses feitos com amor e ingredientes locais",
+    "menuBreadsTitle": "Pães",
+    "menuBread1Title": "Pão de Monchique",
+    "menuBread1Desc": "O nosso pão de forno a lenha com crosta estaladiça e miolo fofo.",
+    "menuBread2Title": "Pão Alentejano",
+    "menuBread2Desc": "Pão redondo tradicional do Alentejo, com miolo denso e sabor autêntico.",
+    "menuBread3Title": "Pão de Centeio",
+    "menuBread3Desc": "Pão de centeio robusto, com sabor intenso e textura consistente.",
+    "menuPastriesTitle": "Pastéis",
+    "menuPastry1Title": "Pastel de Nata",
+    "menuPastry1Desc": "Tartes de nata cremosas com massa folhada crocante e toque de canela.",
+    "menuPastry1Price": "€1,20 cada",
+    "menuPastry2Title": "Bolo de Arroz",
+    "menuPastry2Desc": "Queques de farinha de arroz com textura leve e sabor delicado.",
+    "menuPastry2Price": "€1,00 cada",
+    "menuPastry3Title": "Bolo de Mel",
+    "menuPastry3Desc": "Bolo de mel do Algarve, enriquecido com mel local e amêndoas.",
+    "menuPastry3Price": "€3,50 (fatia)",
+    "menuDrinksTitle": "Bebidas",
+    "menuDrink1Title": "Bica (Expresso)",
+    "menuDrink1Desc": "Expresso intenso ao estilo português, feito com grãos selecionados.",
+    "menuDrink2Title": "Galão",
+    "menuDrink2Desc": "Café com leite servido em copo alto, perfeito para acompanhar um pastel.",
+    "menuDrink3Title": "Sumo de Fruta",
+    "menuDrink3Desc": "Sumos naturais de frutas frescas do Algarve, espremidas na hora.",
 
-    // INDEX / HERO
-    hero_title: "Bem-vindo à Padaria Branco Quente",
-    hero_subtitle: "Pão acabado de cozer e pastelaria tradicional todos os dias.",
-
-    // MENU
-    menu_hero_title: "O Nosso Menu",
-    menu_section_title: "Produtos acabados de fazer",
-    prod_pao_title: "Pão de Monchique",
-    prod_pao_desc: "O nosso pão emblemático, com crosta estaladiça e miolo macio.",
-    prod_nata_title: "Pastel de Nata",
-    prod_nata_desc: "Tarte de nata cremosa com massa folhada e canela.",
-
-    // ABOUT
-    about_title: "Sobre Nós",
-    our_story: "A Nossa História",
-    hero_subtitle_about: "Três gerações de tradição de padaria em Monchique",
-    from_humble: "De Humildes Começos",
-    history_1: "Fundada em 1987 por João e Maria Silva, a Padaria Branco Quente começou como uma pequena padaria de bairro que servia pão fresco aos moradores de Monchique.",
-    history_2: "O que começou como um modesto forno a lenha cresceu para se tornar uma instituição querida, agora gerida pela filha Ana e o marido Carlos.",
-
-    // CONTACT
-    contact_title: "Contacte-nos",
-    contact_header: "Entre em Contacto",
-    contact_subheader: "Adoramos ouvir de si! Envie-nos uma mensagem ou visite a padaria.",
-    form_name: "Nome",
-    form_email: "Email",
-    form_message: "Mensagem",
-    form_send: "Enviar Mensagem",
-
-    // FOOTER
-    footer_rights: "Todos os direitos reservados.",
-    footer_navigation: "Navegação",
-    footer_hours: "Horário",
+    "aboutPageTitle": "Sobre Nós | Padaria Branco Quente",
+    "aboutHeroTitle": "A Nossa História",
+    "aboutHeroSubtitle": "Três gerações de tradição em Monchique",
+    "aboutFig1Caption": "A nossa primeira padaria em Monchique.",
+    "aboutStoryTitle": "Das Origens Simples",
+    "aboutStoryDesc1": "Fundada em 1987 por João e Maria Silva, a Padaria Deliciosa começou como uma pequena padaria de bairro a servir pão fresco aos habitantes de Monchique.",
+    "aboutStoryDesc2": "O que começou como um forno a lenha modesto cresceu para se tornar uma instituição local, agora gerida pela filha Ana e pelo marido Carlos, que continuam a tradição familiar com um toque moderno.",
+    "aboutStoryFact": "Aberta todos os dias desde 1987",
+    "aboutMissionTitle": "A Nossa Missão & Valores",
+    "aboutMissionDesc": "Na Padaria Deliciosa acreditamos em preservar as tradições portuguesas, usando apenas os melhores ingredientes locais. O nosso compromisso com a qualidade mantém-se inalterado há mais de três décadas.",
+    "aboutValue1Title": "Paixão",
+    "aboutValue1Desc": "Fazemos cada pão e bolo com amor e dedicação.",
+    "aboutValue2Title": "Qualidade",
+    "aboutValue2Desc": "Usamos apenas ingredientes locais de excelência.",
+    "aboutValue3Title": "Comunidade",
+    "aboutValue3Desc": "A servir Monchique com orgulho desde 1987.",
+    "aboutTeamTitle": "A Nossa Equipa",
+    "aboutTeamSubtitle": "Os rostos por trás dos seus produtos favoritos.",
+    "aboutTeam1FigCap": "Ana Silva na padaria.",
+    "aboutTeam1Name": "Ana Silva",
+    "aboutTeam1Role": "Proprietária & Padeira",
+    "aboutTeam1Desc": "Filha dos fundadores, cresceu na padaria e estudou pastelaria em Lisboa antes de assumir o negócio da família.",
+    "aboutTeam2FigCap": "Carlos a preparar doçaria tradicional.",
+    "aboutTeam2Name": "Carlos Mendes",
+    "aboutTeam2Role": "Pasteleiro",
+    "aboutTeam2Desc": "Especialista em pastelaria tradicional portuguesa, com mais de 20 anos de experiência.",
+    "aboutTeam3FigCap": "Miguel junto ao forno a lenha.",
+    "aboutTeam3Name": "Miguel Costa",
+    "aboutTeam3Role": "Mestre Padeiro",
+    "aboutTeam3Desc": "O nosso especialista em forno a lenha que começa a cozer pão às 3 da manhã.",
+    "aboutCtaTitle": "Visite a Nossa Padaria",
+    "aboutCtaSubtitle": "Venha experimentar a tradição e o sabor da verdadeira padaria portuguesa.",
+    "aboutCtaBtn1": "Ver Menu",
+    "aboutCtaBtn2": "Fale Connosco",
+    
+    "contactPageTitle": "Contactos | Padaria Branco Quente",
+    "contactHeroTitle": "Contacte-nos",
+    "contactHeroSubtitle": "Gostaríamos muito de ouvir a sua opinião",
+    "contactFormTitle": "Envie-nos uma Mensagem",
+    "contactFormName": "O seu nome",
+    "contactFormEmail": "Endereço de email",
+    "contactFormMessage": "A sua mensagem",
+    "contactFormButton": "Enviar Mensagem",
+    "contactMapPlaceholder1": "Aqui aparecerá o Google Maps",
+    "contactMapPlaceholder2": "a mostrar a localização da nossa padaria em Monchique",
+    "contactInfoTitle": "Visite a Nossa Padaria",
+    "contactInfoAddressTitle": "Morada",
+    "contactInfoPhoneTitle": "Telefone",
+    "contactInfoEmailTitle": "Email",
+    "contactInfoHoursTitle": "Horário",
+    "contactInfoHoursDesc": "Seg-Sex: 6h - 19h<br>Sáb: 6h - 17h<br>Dom: 7h - 14h",
+    "contactInfoFollowTitle": "Siga-nos"
   }
 };
-
-// make function globally available (so inline onclicks keep working)
-window.setLanguage = function(lang) {
-  if (!translations[lang]) lang = 'en';
-  document.documentElement.setAttribute('lang', lang);
-  localStorage.setItem('site_lang', lang);
-
-  // translate textContent
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (!key) return;
-    const value = translations[lang][key];
-    if (value !== undefined) el.textContent = value;
-  });
-
-  // translate attributes: syntax data-i18n-attr="placeholder:contact_name,title:tooltip"
-  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
-    const mapping = el.getAttribute('data-i18n-attr'); // e.g. placeholder:contact_name
-    mapping.split(',').forEach(pair => {
-      const [attr, key] = pair.split(':').map(s => s.trim());
-      if (attr && key && translations[lang][key]) {
-        el.setAttribute(attr, translations[lang][key]);
-      }
-    });
-  });
-
-  // translate innerHTML when necessary (use sparingly) - keys defined in translations
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const key = el.getAttribute('data-i18n-html');
-    const value = translations[lang][key];
-    if (value !== undefined) el.innerHTML = value;
-  });
-
-  // update language button visual state if present
-  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-    btn.classList.toggle('opacity-60', btn.getAttribute('data-lang') !== lang);
-  });
-};
-
-// initialize on DOM load using saved language or default 'en'
-document.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('site_lang') || 'en';
-  window.setLanguage(saved);
-
-  // hook up buttons with data-lang-btn if onclick not used
-  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.getAttribute('data-lang');
-      if (lang) window.setLanguage(lang);
-    });
-  });
-});
