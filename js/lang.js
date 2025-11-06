@@ -1,7 +1,7 @@
 // lang.js
 window.translations = {
   "en": {
-    "pageTitle": "Padaria Branco Quente | Artisan Bakery in Monchique",
+    "pageTitle": "Padaria Deliciosa | Artisan Bakery in Monchique",
     "navHome": "Home",
     "navMenu": "Menu",
     "navAbout": "About Us",
@@ -11,7 +11,7 @@ window.translations = {
     "heroButton": "View Menu",
     "aboutImageCaption": "Cozy interior of our artisan bakery.",
     "aboutTitle": "Our History",
-    "aboutDesc1": "Founded in the heart of Monchique, Padaria Branco Quente has been serving the community with traditional Portuguese products for over three decades.",
+    "aboutDesc1": "Founded in the heart of Monchique, Padaria Deliciosa has been serving the community with traditional Portuguese products for over three decades.",
     "aboutDesc2": "We use only the best local ingredients: flour from Alentejo and eggs from free-range chickens in the Algarve.",
     "aboutFeature1": "Wood-fired oven",
     "aboutFeature2": "Organic ingredients",
@@ -39,7 +39,7 @@ window.translations = {
     "footerFollowTitle": "Follow Us",
     "footerCopyright": "&copy; 2023 Padaia Deliciosa. All rights reserved.",
     
-    "menuPageTitle": "Menu | Padaria Branco Quente",
+    "menuPageTitle": "Menu | Padaria Deliciosa",
     "menuHeaderTitle": "Our Menu",
     "menuHeaderSubtitle": "Traditional Portuguese bakery products made with love and local ingredients",
     "menuBreadsTitle": "Breads",
@@ -67,7 +67,7 @@ window.translations = {
     "menuDrink3Title": "Fruit Juice",
     "menuDrink3Desc": "Natural juices from fresh Algarve fruits, squeezed to order.",
 
-    "aboutPageTitle": "About Us | Padaria Branco Quente",
+    "aboutPageTitle": "About Us | Padaria Deliciosa",
     "aboutHeroTitle": "Our History",
     "aboutHeroSubtitle": "Three generations of tradition in Monchique",
     "aboutFig1Caption": "Our first bakery in Monchique.",
@@ -102,7 +102,7 @@ window.translations = {
     "aboutCtaBtn1": "View Menu",
     "aboutCtaBtn2": "Contact Us",
 
-    "contactPageTitle": "Contact | Padaria Branco Quente",
+    "contactPageTitle": "Contact | Padaria Deliciosa",
     "contactHeroTitle": "Contact Us",
     "contactHeroSubtitle": "We would love to hear from you",
     "contactFormTitle": "Send Us a Message",
@@ -121,7 +121,7 @@ window.translations = {
     "contactInfoFollowTitle": "Follow Us"
   },
   "pt": {
-    "pageTitle": "Padaria Branco Quente | Padaria Artesanal em Monchique",
+    "pageTitle": "Padaria Deliciosa | Padaria Artesanal em Monchique",
     "navHome": "Início",
     "navMenu": "Menu",
     "navAbout": "Sobre Nós",
@@ -131,7 +131,7 @@ window.translations = {
     "heroButton": "Ver Menu",
     "aboutImageCaption": "Interior acolhedor da nossa padaria artesanal.",
     "aboutTitle": "A Nossa História",
-    "aboutDesc1": "Fundada no coração de Monchique, a Padaria Branco Quente serve a comunidade com produtos tradicionais portugueses há mais de três décadas.",
+    "aboutDesc1": "Fundada no coração de Monchique, a Padaria Deliciosa serve a comunidade com produtos tradicionais portugueses há mais de três décadas.",
     "aboutDesc2": "Usamos apenas os melhores ingredientes locais: farinha do Alentejo e ovos de galinhas criadas ao ar livre no Algarve.",
     "aboutFeature1": "Forno a lenha",
     "aboutFeature2": "Ingredientes biológicos",
@@ -159,7 +159,7 @@ window.translations = {
     "footerFollowTitle": "Siga-nos",
     "footerCopyright": "&copy; 2023 Padaia Deliciosa. Todos os direitos reservados.",
 
-    "menuPageTitle": "Menu | Padaria Branco Quente",
+    "menuPageTitle": "Menu | Padaria Deliciosa",
     "menuHeaderTitle": "O Nosso Menu",
     "menuHeaderSubtitle": "Produtos de padaria tradicionais portugueses feitos com amor e ingredientes locais",
     "menuBreadsTitle": "Pães",
@@ -187,7 +187,7 @@ window.translations = {
     "menuDrink3Title": "Sumo de Fruta",
     "menuDrink3Desc": "Sumos naturais de frutas frescas do Algarve, espremidas na hora.",
 
-    "aboutPageTitle": "Sobre Nós | Padaria Branco Quente",
+    "aboutPageTitle": "Sobre Nós | Padaria Deliciosa",
     "aboutHeroTitle": "A Nossa História",
     "aboutHeroSubtitle": "Três gerações de tradição em Monchique",
     "aboutFig1Caption": "A nossa primeira padaria em Monchique.",
@@ -222,7 +222,7 @@ window.translations = {
     "aboutCtaBtn1": "Ver Menu",
     "aboutCtaBtn2": "Fale Connosco",
     
-    "contactPageTitle": "Contactos | Padaria Branco Quente",
+    "contactPageTitle": "Contactos | Padaria Deliciosa",
     "contactHeroTitle": "Contacte-nos",
     "contactHeroSubtitle": "Gostaríamos muito de ouvir a sua opinião",
     "contactFormTitle": "Envie-nos uma Mensagem",
